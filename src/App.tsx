@@ -2,13 +2,27 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Mainpage from './pages/mainpage/mainpage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Registration from './pages/registrationpage/Registration';
 
 function App() {
 return (
-    <div className="App">
-      <Mainpage />
-  
-    </div>
+    <Router>
+      <div className="App">
+        <main>
+          <Routes>
+            {/* Главная страница */}
+            <Route path="/" element={
+                <Mainpage />
+            } />
+
+            {/* Страница регистрации */}
+            <Route path="/register" element={<Registration />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

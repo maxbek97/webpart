@@ -2,6 +2,7 @@ import React from 'react';
 import NavButton from './NavButton';
 import ActionButton from './ActionButton';
 import '../Header.css';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const menuItems = [
@@ -9,9 +10,11 @@ const Header: React.FC = () => {
     { id: 2, href: '#tech', label: 'Технологии' },
   ];
 
+  const navigate = useNavigate();
+
   const handleAction = () => {
-    console.log("Кнопка нажата! Тут будет логика авторизации или скачивания.");
-    // Например: window.location.href = '/download/game.exe';
+    // Вместо скролла теперь переходим на другой URL
+    navigate('/register');
   };
 
   return (

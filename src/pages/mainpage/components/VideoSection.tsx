@@ -1,13 +1,18 @@
 import React from 'react';
 import ActionButton from './ActionButton';
 import '../VideoSection.css';
+import { useNavigate } from 'react-router-dom';
 
 const videoSrc = '/videos/webvid.mp4'; 
 
 const VideoSection: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleDownloadClick = () => {
-    console.log("Кнопка 'Скачать' нажата в Hero секции.");
+    // Вместо скролла теперь переходим на другой URL
+    navigate('/register');
   };
+
 
   return (
     <section className="hero-video-section" id="describe_video">
