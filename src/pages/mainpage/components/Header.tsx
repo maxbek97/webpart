@@ -5,7 +5,7 @@ import '../Header.css';
 
 const Header: React.FC = () => {
   const menuItems = [
-    { id: 1, href: '#agents', label: 'Описание' },
+    { id: 1, href: '#describe_video', label: 'Описание' },
     { id: 2, href: '#maps', label: 'Технологии' },
   ];
 
