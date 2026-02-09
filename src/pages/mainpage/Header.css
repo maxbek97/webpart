@@ -58,7 +58,7 @@
   font-weight: 800;
   text-transform: uppercase;
   cursor: pointer;
-  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%); /* "Срезанные" углы в стиле Valorant */
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%);
   transition: transform 0.2s, background-color 0.2s;
 }
 
