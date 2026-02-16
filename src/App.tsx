@@ -5,6 +5,7 @@ import Mainpage from './pages/mainpage/mainpage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Registration from './pages/registrationpage/Registration';
+import Authorization from './pages/authorizationpage/Authorization';
 
 function App() {
 return (
@@ -18,7 +19,14 @@ return (
             } />
 
             {/* Страница регистрации */}
-            <Route path="/register" element={<Registration />} />
+            <Route path="/register" element={
+              <Registration />
+            } />
+
+            {/* Страница авторизации */}
+            <Route path="/auth" element={
+              <Authorization/>
+            } />
           </Routes>
         </main>
       </div>

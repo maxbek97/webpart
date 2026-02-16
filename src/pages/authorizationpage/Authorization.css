@@ -1,4 +1,4 @@
-.registration-section {
+.authorization-section {
   /* Фиксируем высоту ровно по экрану */
   height: 100vh; 
   width: 100%;
@@ -16,7 +16,7 @@
   padding: 20px;
 }
 
-.registration-container {
+.authorization-container {
   width: 100%;
   max-width: 450px;
   /* Добавим небольшую анимацию появления, раз это отдельная страница */
@@ -31,7 +31,7 @@
 /* Если форма на маленьких экранах (телефонах) не влезает по высоте, 
    разрешаем скролл только для мобилок */
 @media (max-height: 700px) {
-  .registration-section {
+  .authorization-section {
     height: auto;
     min-height: 100vh;
     overflow-y: auto;
@@ -39,14 +39,14 @@
   }
 }
 
-.registration-card {
+.authorization-card {
   background-color: #ffffff;
   padding: 50px;
-  box-shadow: 20px 20px 0px rgba(67, 54, 243, 0.1); /* Красная тень в стиле игры */
+  box-shadow: 20px 20px 0px rgba(67, 54, 243, 0.1);
   border: 1px solid rgba(0,0,0,0.05);
 }
 
-.registration-title {
+.authorization-title {
   font-size: 32px;
   font-weight: 900;
   text-transform: uppercase;
@@ -54,13 +54,13 @@
   margin-bottom: 10px;
 }
 
-.registration-subtitle {
+.authorization-subtitle {
   color: #7e7e7e;
   margin-bottom: 30px;
   font-size: 14px;
 }
 
-.registration-form {
+.authorization-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -91,10 +91,10 @@
 
 .input-group input:focus {
   border-bottom: 2px solid #1382eb;
-  color: white;;
+  color: inherit
 }
 
-.registration-footer {
+.authorization-footer {
   margin-top: 20px;
   display: flex;
   justify-content: center;

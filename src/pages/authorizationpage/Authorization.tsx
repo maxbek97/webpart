@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ActionButton from '../mainpage/components/ActionButton';
-import './Registration.css';
+import './Authorization.css';
 
-const Registration: React.FC = () => {
+const Authorization: React.FC = () => {
   const [formData, setFormData] = useState({
     email: '',
-    username: '',
     password: '',
   });
 
@@ -19,33 +18,22 @@ const Registration: React.FC = () => {
   const navigate = useNavigate();
 
   const handleAction = () => {
-    // Вместо скролла теперь переходим на другой URL
-    navigate('/auth');
+    navigate('/register');
   };
 
   return (
-    <section id="reg" className="registration-section">
-      <div className="registration-container">
-        <div className="registration-card">
-          <h2 className="registration-title">Создать аккаунт</h2>
-          <p className="registration-subtitle">Опробуйте гиперреальность IVANVISON</p>
+    <section id="auth" className="authorization-section">
+      <div className="authorization-container">
+        <div className="authorization-card">
+          <h2 className="authorization-title">Войти в аккаунт</h2>
 
-          <form className="registration-form" onSubmit={handleSubmit}>
+          <form className="authorization-form" onSubmit={handleSubmit}>
             <div className="input-group">
               <label>Электронная почта</label>
               <input 
                 type="email" 
                 required 
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-              />
-            </div>
-
-            <div className="input-group">
-              <label>Имя пользователя</label>
-              <input 
-                type="text" 
-                required 
-                onChange={(e) => setFormData({...formData, username: e.target.value})}
               />
             </div>
 
@@ -58,13 +46,13 @@ const Registration: React.FC = () => {
               />
             </div>
 
-            <div className="registration-footer">
-              <ActionButton text="Зарегистрироваться" type="submit" />
+            <div className="authorization-footer">
+              <ActionButton text="Войти" type="submit" />
             </div>
           </form>
 
           <p className="login-prompt">
-            Уже есть аккаунт? <a onClick={handleAction}>Войти</a>
+            Нет аккаунта? <a onClick={handleAction}>Зарегистрироваться</a>
           </p>
         </div>
       </div>
@@ -72,4 +60,4 @@ const Registration: React.FC = () => {
   );
 };
 
-export default Registration;
+export default Authorization;
