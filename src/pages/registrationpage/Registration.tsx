@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import ActionButton from '../mainpage/components/ActionButton';
 import './Registration.css';
 
-const API_URL = process.env.REACT_APP_API_URL;
 
 const Registration: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${API_URL}/auth/register`, {
+      const response = await fetch(`/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -4,8 +4,6 @@ import ActionButton from '../mainpage/components/ActionButton';
 import './Authorization.css';
 
 
-const API_URL = process.env.REACT_APP_API_URL
-
 const Authorization: React.FC = () => {
   const navigate = useNavigate();
 
@@ -18,7 +16,7 @@ const Authorization: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const response = await fetch(`/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
