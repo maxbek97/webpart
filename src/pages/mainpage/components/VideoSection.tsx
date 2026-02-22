@@ -8,9 +8,21 @@ const videoSrc = '/videos/webvid.mp4';
 const VideoSection: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleDownloadClick = () => {
-    // Вместо скролла теперь переходим на другой URL
-    navigate('/register');
+ const handleAction = () => {
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      // Если нет токена → редиректим на страницу авторизации
+      navigate('/auth');
+      return;
+    };
+
+    const link = document.createElement('a');
+    link.href = '/result.txt';  // путь относительно public
+    link.download = 'result.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
 
@@ -36,7 +48,7 @@ const VideoSection: React.FC = () => {
         <p className="hero-subtitle">
           Окунитесь в гиперреальность
         </p>
-        <ActionButton text="Скачать" onClick={handleDownloadClick} />
+        <ActionButton text="Скачать" onClick={handleAction} />
       </div>
     </section>
   );

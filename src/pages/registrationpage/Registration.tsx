@@ -3,23 +3,47 @@ import { useNavigate } from 'react-router-dom';
 import ActionButton from '../mainpage/components/ActionButton';
 import './Registration.css';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const Registration: React.FC = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    email: '',
-    username: '',
+    userEmail: '',
+    userLogin: '',
     password: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Данные для регистрации:', formData);
-    alert('Аккаунт создан! (Это демо)');
+
+    try {
+      const response = await fetch(`${API_URL}/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.message || 'Ошибка регистрации ');
+        return;
+      }
+
+      alert('Регистрация успешна!');
+      navigate('/auth');
+    } catch (error) {
+      console.error(error);
+      alert('Ошибка соединения с сервером');
+    }
   };
 
-  const navigate = useNavigate();
+  
 
   const handleAction = () => {
-    // Вместо скролла теперь переходим на другой URL
     navigate('/auth');
   };
 
@@ -35,8 +59,9 @@ const Registration: React.FC = () => {
               <label>Электронная почта</label>
               <input 
                 type="email" 
-                required 
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                required
+                value={formData.userEmail}
+                onChange={(e) => setFormData({...formData, userEmail: e.target.value})}
               />
             </div>
 
@@ -45,7 +70,8 @@ const Registration: React.FC = () => {
               <input 
                 type="text" 
                 required 
-                onChange={(e) => setFormData({...formData, username: e.target.value})}
+                value={formData.userLogin}
+                onChange={(e) => setFormData({...formData, userLogin: e.target.value})}
               />
             </div>
 
@@ -53,7 +79,8 @@ const Registration: React.FC = () => {
               <label>Пароль</label>
               <input 
                 type="password" 
-                required 
+                required
+                value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
               />
             </div>

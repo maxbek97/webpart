@@ -3,19 +3,52 @@ import { useNavigate } from 'react-router-dom';
 import ActionButton from '../mainpage/components/ActionButton';
 import './Authorization.css';
 
+
+const API_URL = process.env.REACT_APP_API_URL
+
 const Authorization: React.FC = () => {
-  const [formData, setFormData] = useState({
-    email: '',
+  const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+    userEmail: '',
     password: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Данные для регистрации:', formData);
-    alert('Аккаунт создан! (Это демо)');
+
+    try {
+      const response = await fetch(`${API_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userEmail: formData.userEmail,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.message || 'Ошибка авторизации');
+        return;
+      }
+
+      // 🔐 сохраняем токены
+      localStorage.setItem('accessToken', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
+
+      alert('Успешный вход!');
+      navigate('/'); // редирект на главную
+    } catch (error) {
+      console.error(error);
+      alert('Ошибка соединения с сервером');
+    }
   };
 
-  const navigate = useNavigate();
+  
 
   const handleAction = () => {
     navigate('/register');
@@ -32,8 +65,9 @@ const Authorization: React.FC = () => {
               <label>Электронная почта</label>
               <input 
                 type="email" 
-                required 
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                required
+                value={formData.userEmail}
+                onChange={(e) => setFormData({...formData, userEmail: e.target.value})}
               />
             </div>
 
@@ -42,6 +76,7 @@ const Authorization: React.FC = () => {
               <input 
                 type="password" 
                 required 
+                value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
               />
             </div>

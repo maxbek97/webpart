@@ -13,8 +13,20 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
 
   const handleAction = () => {
-    // Вместо скролла теперь переходим на другой URL
-    navigate('/register');
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      // Если нет токена → редиректим на страницу авторизации
+      navigate('/auth');
+      return;
+    };
+
+    const link = document.createElement('a');
+    link.href = '/result.txt';  // путь относительно public
+    link.download = 'result.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
