@@ -16,7 +16,7 @@ const Authorization: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`/auth/login`, {
+      const response = await fetch(`/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Authorization: React.FC = () => {
         return;
       }
 
-      // 🔐 сохраняем токены
+      
       localStorage.setItem('accessToken', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
 
