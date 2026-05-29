@@ -5,8 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Обрезаем всё, что выходит за границы */
-  color: white; /* Цвет текста по умолчанию */
+  overflow: hidden;
+  color: white;
   text-align: center;
 }
 
@@ -20,7 +20,6 @@
   z-index: 1;
 }
 
-/* Затемняющий оверлей */
 .video-overlay {
   position: absolute;
   inset: 0;
@@ -28,17 +27,16 @@
   z-index: 2;
 }
 
-/* Контент (заголовок, текст, кнопка) */
 .hero-content {
   position: relative;
-  z-index: 3; /* Поверх оверлея */
+  z-index: 3;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  gap: 25px; /* Отступ между элементами */
-  max-width: 900px; /* Ограничиваем ширину текста */
+  gap: 25px;
+  max-width: 900px; 
 }
 
 .hero-title {
@@ -51,7 +49,7 @@
 }
 
 .hero-title .highlight {
-  color: #ff4655; /* Красное выделение */
+  color: #ff4655;
 }
 
 .hero-subtitle {

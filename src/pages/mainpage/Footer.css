@@ -1,7 +1,7 @@
 .footer {
-  background-color: #292929; /* Чуть светлее хедера, чтобы отделить контент */
+  background-color: #292929;
   padding: 80px 20px;
-  color: #7e7e7e; /* Серый текст для второстепенной информации */
+  color: #7e7e7e;
   font-family: sans-serif;
   text-align: center;
 }
@@ -20,7 +20,6 @@
   display: flex;
   gap: 15px;
 }
-
 
 /* Логотипы */
 .footer-logos {
@@ -87,7 +86,6 @@
 .social-svg-icon {
   width: 20px;
   height: 20px;
-  /* Если иконки черные, можно сделать их белыми программно: */
   filter: brightness(0) invert(1); 
 }
 

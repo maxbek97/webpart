@@ -16,13 +16,12 @@ const Header: React.FC = () => {
     const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
-      // Если нет токена → редиректим на страницу авторизации
       navigate('/auth');
       return;
     };
 
     const link = document.createElement('a');
-    link.href = '/app-release.apk';  // путь относительно public
+    link.href = '/app-release.apk';
     link.download = 'app-release.apk';
     document.body.appendChild(link);
     link.click();
@@ -33,7 +32,7 @@ const Header: React.FC = () => {
     <header className="header-container">
       {/* ЛЕВАЯ ЧАСТЬ: Навигация */}
       <nav className="header-nav">
-        <div className="logo-placeholder">V</div> {/* Вместо логотипа */}
+        <div className="logo-placeholder">V</div>
         <ul className="nav-list">
           {menuItems.map((item) => (
             <NavButton key={item.id} href={item.href} label={item.label} />
