@@ -32,3 +32,21 @@
     font-family: sans-serif;
     line-height: 1.5;
 }
+
+@media (max-width: 768px) {
+  .tech-box {
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .tech-svg-icon {
+    width: 180px;
+    height: 180px;
+  }
+
+  .Tech-container {
+    width: 100%;
+    height: auto;
+  }
+}

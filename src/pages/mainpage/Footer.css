@@ -95,3 +95,19 @@
   background-color: #0d5fac;
   transform: translateY(-3px);
 }
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 16px;
+  }
+
+  .footer-logos {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-legal-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

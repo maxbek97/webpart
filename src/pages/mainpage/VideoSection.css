@@ -1,7 +1,7 @@
 .hero-video-section {
   position: relative;
-  width: 100%;
-  height: 850px; /* Занимаем всю высоту вьюпорта */
+  min-height: 100vh;
+  padding: 120px 80px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,47 +13,41 @@
 /* Видео-фон */
 .hero-video-background {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: 1; /* Под контентом */
-  transform: translate(-50%, -50%); /* Центрируем видео */
-  object-fit: cover; /* Растягиваем видео на весь контейнер */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 /* Затемняющий оверлей */
 .video-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Черный с прозрачностью 60% */
-  z-index: 2; /* Поверх видео, но под контентом */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
 }
 
 /* Контент (заголовок, текст, кнопка) */
 .hero-content {
   position: relative;
   z-index: 3; /* Поверх оверлея */
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 25px; /* Отступ между элементами */
   max-width: 900px; /* Ограничиваем ширину текста */
-  padding: 0 20px;
 }
 
 .hero-title {
-  font-size: 4.5rem; /* Огромный заголовок */
+  font-size: 72px;
+  line-height: 1;
   font-weight: 900;
   text-transform: uppercase;
-  line-height: 1.1;
-  margin: 0;
   letter-spacing: 2px;
+  margin: 0;
 }
 
 .hero-title .highlight {
@@ -61,8 +55,44 @@
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 300;
+  max-width: 700px;
   margin: 0;
-  max-width: 600px;
+}
+
+@media (max-width: 1024px) {
+  .hero-video-section {
+    padding: 100px 40px 60px;
+  }
+
+  .hero-title {
+    font-size: 56px;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-video-section {
+    min-height: 100svh;
+    padding: 90px 20px 40px;
+  }
+
+  .hero-content {
+    gap: 18px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
