@@ -22,8 +22,8 @@ const Header: React.FC = () => {
     };
 
     const link = document.createElement('a');
-    link.href = '/result.txt';  // путь относительно public
-    link.download = 'result.txt';
+    link.href = '/app-release.apk';  // путь относительно public
+    link.download = 'app-release.apk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
