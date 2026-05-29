@@ -1,0 +1,98 @@
+.hero-video-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 80px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Обрезаем всё, что выходит за границы */
+  color: white; /* Цвет текста по умолчанию */
+  text-align: center;
+}
+
+/* Видео-фон */
+.hero-video-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Затемняющий оверлей */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* Контент (заголовок, текст, кнопка) */
+.hero-content {
+  position: relative;
+  z-index: 3; /* Поверх оверлея */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 25px; /* Отступ между элементами */
+  max-width: 900px; /* Ограничиваем ширину текста */
+}
+
+.hero-title {
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.hero-title .highlight {
+  color: #ff4655; /* Красное выделение */
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .hero-video-section {
+    padding: 100px 40px 60px;
+  }
+
+  .hero-title {
+    font-size: 56px;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-video-section {
+    min-height: 100svh;
+    padding: 90px 20px 40px;
+  }
+
+  .hero-content {
+    gap: 18px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

@@ -1,0 +1,52 @@
+.tech-section {
+    background-color: '#0f1923';
+}
+
+.tech-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    padding: 30px;
+}
+
+.tech-svg-icon {
+  width: 300px;
+  height: 300px;
+  /* Если иконки черные, можно сделать их белыми программно: */
+}
+
+/* .tech-description */
+
+.Tech-container {
+    width: 300px;
+    height: 400px;
+}
+
+.Tech-description {
+    text-align: center;
+    color: var(--darkreader-text-eeeeee, #7e7e7e);
+    text-decoration-color: initial;
+    font-size: 18px;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .tech-box {
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .tech-svg-icon {
+    width: 180px;
+    height: 180px;
+  }
+
+  .Tech-container {
+    width: 100%;
+    height: auto;
+  }
+}
